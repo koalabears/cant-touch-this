@@ -7,20 +7,8 @@ var rootElement = document.body;
 
 require('../styles/main.js');
 
-var appData = {
-  title: 'koala fridge',
-  list: [
-    'ham',
-    'eggs',
-    'cheese',
-    'tomatoes',
-    'avocados',
-    'cucumber'
-  ],
-  footerText: 'da footer iniiit'
-};
 console.log('reactDomRender!');
 ReactDOM.render(
-  <App {...appData}/>,
+  <App />,
   rootElement
 );
