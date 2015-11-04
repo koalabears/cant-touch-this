@@ -1,47 +1,50 @@
 var React   = require('react');
 
-var Header  = require('./Header.js');
-var List    = require('./List.js');
-var Footer  = require('./Footer.js');
 
 var App = React.createClass({
+
   getInitialState: function() {
     return {
-      items: this.props.list
-    }
+      x: 0,
+      y: 0
+    };
   },
-  clearFridge: function() {
-    this.setState({
-      items: []
-    });
+
+  getDefaultProps: function() {
+    return {
+      width: 30,
+      height: 30
+    };
   },
-  addItem: function(item) {
-    this.setState({
-      items: this.state.items.concat([item])
-    });
-  },
+
   render: function () {
+    var self = this;
+    console.log(self.props);
+    console.log(parseInt(self.state.x) - self.props.width/2);
+    var style = {
+      position: 'fixed',
+      left: (parseInt(self.state.x) - self.props.width/2) +'px',
+      //mouse position minus the div width/2
+      top: (parseInt(self.state.y) - self.props.height/2) +'px',
+      color: 'blue',
+      borderRadius: '100%',
+      backgroundColor: 'blue',
+      width: self.props.width,
+      height: self.props.height
+    };
     return(
-      <div>
-        <Header
-          title={this.props.title}
-        />
-        <List
-          items={this.state.items}
-          newItemEvent={
-            event => {
-              var inputWrapperDiv = event.target.parentElement;
-              var inputElem = inputWrapperDiv.getElementsByTagName('input')[0];
-              return this.addItem(inputElem.value);
-            }
-          }
-        />
-        <Footer
-          clearFridge={this.clearFridge}
-          footerText={this.props.footerText}
-        />
+      <div style={style}>
       </div>
     );
+  },
+
+  componentDidMount: function() {
+    window.onmousemove = function(event){
+      this.setState({
+        x: event.clientX,
+        y: event.clientY
+      });
+    }.bind(this);
   }
 });
 
