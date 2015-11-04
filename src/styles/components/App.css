@@ -1,4 +1,10 @@
 
 body {
-  background-color: yellow;
+  background-color: black;
+  color: yellow;
+  margin: 0;
+}
+
+div {
+  text-align: center;
 }
