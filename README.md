@@ -1,6 +1,6 @@
 # cant-touch-this
 
-:raised_hand: :no_entry_sign:
+:raised_hand::no_entry_sign:
 
 https://www.youtube.com/watch?v=otCpCn0l4Wo
 
